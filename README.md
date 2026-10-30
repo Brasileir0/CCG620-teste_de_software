@@ -1,99 +1,105 @@
-Atividade 09 — Teste de Software
-Descrição
+# 🧪 Atividade 09 — Teste de Software
 
-Este repositório contém os exercícios da Atividade 09 da disciplina de Teste de Software, com foco em:
+> Repositório dedicado à resolução dos exercícios da Atividade 09 da disciplina de **Teste de Software**, com foco em engenharia de qualidade, cobertura de código e análise de mutação.
 
-Testes automatizados com Pytest.
-Cobertura de instruções e de ramos.
-Teste de mutação com Mutmut.
-Análise de mutantes vivos e mortos.
-Melhoria da qualidade da suíte de testes.
-Tecnologias utilizadas
-Python 3
-Pytest
-Pytest-Cov
-Mutmut 3.8.0
-Instalação
+---
 
-Clone o repositório:
+## 🎯 Objetivos da Atividade
+* Implementar testes automatizados robustos utilizando o ecossistema **Pytest**.
+* Mensurar e maximizar a cobertura de instruções e de ramos (**Branch Coverage**).
+* Aplicar testes de mutação com o **Mutmut** para avaliar a eficácia real da suíte de testes.
+* Analisar mutantes vivos e mortos para eliminar pontos cegos nas asserções.
 
-bash
-git clone URL_DO_REPOSITORIO
+---
 
+## 🛠️ Tecnologias Utilizadas
 
-Entre na pasta do projeto:
+| Tecnologia | Função |
+| :--- | :--- |
+| **Python 3** | Linguagem base do projeto |
+| **Pytest** | Framework de testes automatizados |
+| **Pytest-Cov** | Ferramenta para análise e relatório de cobertura |
+| **Mutmut** | Framework para execução de Testes de Mutação |
 
-bash
-cd atividade_09
+---
 
+## 🚀 Instalação e Configuração
 
-Instale as dependências:
+1. **Clone o repositório:**
+   ```bash
+   git clone URL_DO_REPOSITORIO
+   ```
 
-bash
-pip install -r requirements.txt
+2. **Entre na pasta do projeto:**
+   ```bash
+   cd CCG620-teste_de_software
+   ```
 
-Exercícios
-Exercício 01 — Classificação de alunos
+3. **Instale as dependências:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Implementação de uma função para classificar alunos de acordo com a média e a frequência.
+---
 
-Foram realizados testes para verificar:
+## 📂 Estrutura dos Exercícios
 
-Aprovação.
-Recuperação.
-Reprovação.
-Reprovação por falta.
-Validação de média e frequência.
+### 👤 Exercício 01 — Classificação de Alunos
+* **Contexto:** Validação de regras de negócio para classificar a situação acadêmica de alunos baseando-se em média ponderada e frequência mínima.
+* **Cenários Testados:**
+  * ✅ Aprovação regular
+  * ⚠️ Recuperação
+  * ❌ Reprovação por nota
+  * 📉 Reprovação por falta (frequência insuficiente)
+  * 🛑 Validação de limites (dados inválidos ou extremos)
 
-Também foram realizadas medições de cobertura e teste de mutação.
+### 🛒 Exercício 02 — Carrinho de Compras
+* **Contexto:** Motor de cálculo de totalizadores de pedidos com aplicação de desconto progressivo (10% de desconto a partir do 4º item adicionado).
+* **Cenários Testados:**
+  * 🧮 Cálculo básico do total sem desconto
+  * 🏷️ Aplicação correta do gatilho de desconto progressivo
+  * 📦 Variação na quantidade de produtos e tratamento de bordas
+  * 🪙 Validação de valores decimais, dízimas e regras de arredondamento
 
-Exercício 02 — Carrinho de compras
+---
 
-Implementação de uma função para calcular o total de uma compra, aplicando desconto de 10% a partir do quarto produto.
+## 💻 Como Executar os Testes
 
-Foram realizados testes para verificar:
+### 🏃 Execução Simples
+Para rodar todos os testes do projeto de forma limpa e resumida, acesse a pasta do exercício correspondente (`ex01` ou `ex02`) e execute:
+```bash
+pytest -q -o pythonpath=.
+```
 
-Cálculo do total.
-Aplicação de descontos.
-Diferentes quantidades de produtos.
-Valores decimais e arredondamento.
+### 📊 Análise de Cobertura de Ramos (Branch Coverage)
+Para extrair o relatório detalhado das linhas e caminhos lógicos que não foram cobertos pelos testes:
 
-Também foram realizadas análises de cobertura de ramos e Mutation Score.
+* **No Exercício 01:**
+  ```bash
+  pytest -q -o pythonpath=. --cov=src --cov-branch --cov-report=term-missing
+  ```
+* **No Exercício 02:**
+  ```bash
+  pytest -q -o pythonpath=. --cov=src --cov-branch --cov-report=term-missing
+  ```
 
-Como executar os testes
+---
 
-Para executar todos os testes:
+## 👾 Teste de Mutação (Mutmut)
 
-bash
-pytest -q
+O teste de mutação insere pequenas falhas intencionais no código sob teste (mutantes) para verificar se a sua suíte de testes é capaz de perceber a alteração e falhar (matando o mutante).
 
+1. **Para executar a análise de mutação:**
+   ```bash
+   mutmut run
+   ```
 
-Para medir a cobertura de ramos:
+2. **Para visualizar o relatório final de mutantes sobreviventes:**
+   ```bash
+   mutmut results
+   ```
 
-bash
-pytest -q --cov=carrinho_lib --cov-branch --cov-report=term-missing
+### 📈 Métrica de Qualidade (Mutation Score)
+O score final de mutação (**MS**) determina a eficiência real dos seus testes através da fórmula:
 
-
-No exercício 01, utilize o pacote correspondente:
-
-bash
-pytest -q --cov=classificacao_lib --cov-branch --cov-report=term-missing
-
-Teste de mutação
-
-Para executar o Mutmut:
-
-bash
-mutmut run
-
-
-O resultado apresenta a quantidade de mutantes gerados, mortos e sobreviventes.
-
-O Mutation Score é calculado por:
-
-text
-MS = (Mutantes mortos / Mutantes gerados) * 100
-
-Objetivo da atividade
-
-Avaliar a eficácia dos testes automatizados, comparando a cobertura de código com o Mutation Score e aprimorando a suíte de testes para identificar alterações no comportamento das funções.
+$$\text{Mutation Score (MS)} = \left( \frac{\text{Mutantes Mortos}}{\text{Mutantes Gerados}} \right) \times 100$$
