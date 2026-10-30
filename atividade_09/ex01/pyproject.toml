@@ -1,0 +1,6 @@
+[tool.mutmut]
+source_paths = ["classificacao_lib/"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
