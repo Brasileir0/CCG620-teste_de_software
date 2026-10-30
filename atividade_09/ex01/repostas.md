@@ -1,4 +1,4 @@
-> a) Meça a cobertura de ramos e rode o mutmut. Quantos mutantes foram gerados, mortos e vivos?
+a) Meça a cobertura de ramos e rode o mutmut. Quantos mutantes foram gerados, mortos e vivos?
 ```
 pytest -q -o pythonpath=. --cov=classificacao_lib --cov-branch --cov-report=term-missing
 Name                                 Stmts   Miss Branch BrPart  Cover   Missing
