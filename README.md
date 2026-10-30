@@ -76,11 +76,11 @@ Para extrair o relatório detalhado das linhas e caminhos lógicos que não fora
 
 * **No Exercício 01:**
   ```bash
-  pytest -q -o pythonpath=. --cov=src --cov-branch --cov-report=term-missing
+  pytest -q -o pythonpath=classificacao_lib --cov=src --cov-branch --cov-report=term-missing
   ```
 * **No Exercício 02:**
   ```bash
-  pytest -q -o pythonpath=. --cov=src --cov-branch --cov-report=term-missing
+  pytest -q -o pythonpath=carrinho_lib --cov=src --cov-branch --cov-report=term-missing
   ```
 
 ---
